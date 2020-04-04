@@ -1,36 +1,33 @@
 <template>
-  <div class="result">
-  <div v-for="item in result">
-    <div>{{item.username}}</div>
-    <div>{{item.pwd}}</div>
-  </div>
+  <div id="home">
+
+    <hot-course></hot-course>
+    <new-course></new-course>
+    <el-card shadow="always" style="text-align: center">
+      路漫漫其修远兮，吾将上下而求索。
+    </el-card>
   </div>
 </template>
 
 <script>
 
-    import {getHomeMuItidata} from "network/home";
+    import HotCourse from "./hotcourse/HotCourse";
+    import NewCourse from "./newcourse/NewCourse";
+
 
     export default {
         name: "home",
-        components: {},
-        data(){
-            return{
-                result:[]
-            }
+        components: {
+            HotCourse,
+            NewCourse
         },
-        created() {
-            //请求多个数据
 
-            getHomeMuItidata().then(res => {
 
-                this.result = res;
-            })
-
-        }
     }
 </script>
 
 <style scoped>
+
+
 
 </style>
